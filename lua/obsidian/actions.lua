@@ -539,7 +539,6 @@ M.start_presentation = function(buf)
 end
 
 M.insert_link = function(query)
-  local Note = require "obsidian.note"
   Obsidian.picker.find_files {
     query = query,
     callback = function(path)
