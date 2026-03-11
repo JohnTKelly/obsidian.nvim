@@ -18,6 +18,13 @@ local initializeResult = {
     referencesProvider = true,
     definitionProvider = true,
     documentSymbolProvider = true,
+    completionProvider = {
+      triggerCharacters = { "[", "#" },
+      resolveProvider = false,
+    },
+    executeCommandProvider = {
+      commands = { "obsidian.create_note" },
+    },
   },
   serverInfo = {
     name = "obsidian-ls",
