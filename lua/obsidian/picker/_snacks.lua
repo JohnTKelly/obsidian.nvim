@@ -54,7 +54,7 @@ M.find_files = function(opts)
   opts.callback = opts.callback or obsidian.api.open_note
 
   ---@type obsidian.Path
-  local dir = opts.dir.filename and Path.new(opts.dir.filename) or Obsidian.dir
+  local dir = opts.dir and Path.new(opts.dir) or Obsidian.dir
 
   local map = vim.tbl_deep_extend("force", {}, notes_mappings(opts.selection_mappings))
 
@@ -65,7 +65,7 @@ M.find_files = function(opts)
     pattern = opts.query,
     source = "files",
     title = opts.prompt_title,
-    cwd = tostring(dir),
+    cwd = opts.dir and tostring(opts.dir) and tostring(dir),
     cmd = cmd,
     args = args,
     confirm = function(picker, item)
